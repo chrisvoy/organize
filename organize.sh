@@ -1,7 +1,24 @@
 #!/bin/bash
-SOURCEDIR=$1
-DESTDIR=$2
 MONTHS=(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+usage() { echo "Usage: organize.sh -s <SOURCEDIR> -d <DESTDIR>" 1>&2; exit 1; }
+
+#parse parameters
+while getopts ":s:d:" o; do
+	case "${o}" in
+		s) 
+		   SOURCEDIR=${OPTARG}
+		   ;;
+		d) 
+		   DESTDIR=${OPTARG}
+		   ;;
+		*) 
+		   usage
+	   	   ;;
+   esac
+done
+if [ -z "${SOURCEDIR}" ] || [ -z "${DESTDIR}" ]; then
+    usage
+fi
 
 #check if strings ends with "/"
 case $SOURCEDIR in
