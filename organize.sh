@@ -1,13 +1,23 @@
 #!/bin/bash
-SOURCEDIR=$1"*"
+SOURCEDIR=$1
 DESTDIR=$2
 MONTHS=(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
+
+#check if strings ends with "/"
+case $SOURCEDIR in
+	*/) SOURCEDIR=$SOURCEDIR"*";;
+	*) SOURCEDIR=$SOURCEDIR"/*";;
+esac
+case $DESTDIR in 
+	*/) echo "ends";;
+	*) DESTDIR=$DESTDIR"/";;
+esac
 
 for file in $SOURCEDIR
 do
 	
-	YEAR=`stat -f "%Sm" -t "%Y" $file`
-	MONTHNO=`stat -f "%Sm" -t "%m" $file`
+	YEAR=`stat -f "%Sm" -t "%Y" "$file"`
+	MONTHNO=`stat -f "%Sm" -t "%m" "$file"`
 	MONTH=${MONTHS[$MONTHNO-1]}
 
 	DEST=$DESTDIR$YEAR"/"
