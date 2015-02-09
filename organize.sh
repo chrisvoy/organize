@@ -9,7 +9,7 @@ case $SOURCEDIR in
 	*) SOURCEDIR=$SOURCEDIR"/*";;
 esac
 case $DESTDIR in 
-	*/) echo "ends";;
+	*/) ;;
 	*) DESTDIR=$DESTDIR"/";;
 esac
 
