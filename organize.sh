@@ -2,6 +2,9 @@
 MONTHS=(Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec)
 usage() { echo "Usage: organize.sh -s <SOURCEDIR> -d <DESTDIR>" 1>&2; exit 1; }
 
+IFSBU=$IFS
+IFS=$(echo -en "\n\b")
+
 #parse parameters
 while getopts ":s:d:" o; do
 	case "${o}" in
@@ -64,3 +67,4 @@ do
 		cp -v $file $DEST
 	fi
 done
+IFS=$IFSBU
