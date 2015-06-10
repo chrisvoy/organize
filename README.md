@@ -6,6 +6,5 @@ EXAMPLE: file `test1.txt` was created in Mar 2015. The destination after running
 `destination_dir/2015/Mar/test1.txt`
 
 ## Usage
-`./organize.sh source_dir/ destination_dir/`
+`./organize.sh - s <source_dir> -d <destination_dir>`
 
-NOTE: use slashes ("/") at the end of source_dir and destination_dir
