@@ -38,6 +38,10 @@ do
 	
 	YEAR=`stat -f "%Sm" -t "%Y" "$file"`
 	MONTHNO=`stat -f "%Sm" -t "%m" "$file"`
+
+	#remove 0 at the beginning
+	MONTHNO=`echo $MONTHNO|sed 's/^0*//'`
+
 	MONTH=${MONTHS[$MONTHNO-1]}
 
 	DEST=$DESTDIR$YEAR"/"
