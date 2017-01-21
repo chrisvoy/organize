@@ -65,10 +65,10 @@ do
 	    done
 	    name=$filename"-"$i"."$extension
 	    #echo "Copying "$file" to "$DEST$name
-		cp -v $file $DEST$name
+		cp -p -v $file $DEST$name
 	else
 		#echo "Copying "$file" to: "$DEST
-		cp -v $file $DEST
+		cp -p -v $file $DEST
 	fi
 done
 IFS=$IFSBU
